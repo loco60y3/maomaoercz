@@ -93,18 +93,32 @@ let refresh = 10;
 let randomNewFishTime = 700;
 // 生成鱼的函数
 function startGeneratingFish() {
+	let levelIn_Index = 0;
 	setInterval(() => {
-		let newFish = {
-			X: 0,
-			Y: 0,
-			I: newFishImage,
-			sorce: 1,
-			m: new Audio('./audio/chicken/j.mp3')
-		};
-		newFish.X = Math.floor(Math.random() * (gameCanvas.width - fishWidth)); // 确保鱼不会出现在画布之外
-		newFish.Y = 0; // 从顶部开始掉落
+		levelIn_Index = isleveloop && levelIn_Index == levelFile.length-1 ? levelIn_Index = 0 : levelIn_Index += 1;
+		if (!islevel) {
+			let newFish = {
+				X: 0,
+				Y: 0,
+				I: newFishImage,
+				sorce: 1,
+				m: new Audio('./audio/chicken/j.mp3')
+			};
+			newFish.X = Math.floor(Math.random() * (gameCanvas.width - fishWidth)); // 确保鱼不会出现在画布之外
+			newFish.Y = 0; // 从顶部开始掉落
+			fishArry.push(newFish);
+		} else {
+			let newFish = levelFile[levelIn_Index]
+			newFish.I = newFishImage
+			newFish.X = newFish.X
+			newFish.m = new Audio('./audio/chicken/j.mp3')
+			newFish.Y = 0; // 从顶部开始掉落
+			console.log(newFish);
+			fishArry.push(newFish);
+		}
+
 		// console.log(newFish.m);
-		fishArry.push(newFish);
+
 	}, randomNewFishTime); // 每秒生成一个鱼
 }
 

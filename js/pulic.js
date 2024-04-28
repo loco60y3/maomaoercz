@@ -20,6 +20,10 @@ let P2_directionLast = 0
 
 //游戏模式，0是积分模式+无尽
 let gameMode = 0
+let islevel = true;
+//是否使用关卡内容？
+let isleveloop = true;
+//是否无限循环关卡内容
 let gameinvincible = true
 //是否无敌
 let gameupdatesetInterval;
