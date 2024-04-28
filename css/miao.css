@@ -1,0 +1,129 @@
+.crosswise{
+	position: absolute; /* 脱离文档流以便定位 */  
+    top: 50%; /* 将元素的顶部设置为页面高度的50% */  
+    left: 58%; /* 将元素的左侧设置为页面宽度的50% */  
+    width: 1280px; /* 设置元素宽度 */  
+    margin-top: -50px; /* 将元素上移自身高度的一半 */  
+    margin-left: -50px; /* 将元素左移自身宽度的一半 */  
+    transform: translate(-50%, -50%) rotate(90deg); /* 先移动到页面中心，然后旋转 */ 
+}
+.score{
+	/* border: 1px solid black; */
+	width: 120px;
+	margin: 12px;
+	padding: 1px;
+	display: inline-block;
+}
+
+#touch{
+	position: relative;
+	width: 60vw;
+	height: 100vh;
+}
+.touchPointP1 {
+	position: absolute;
+	width: 130px;
+	height: 130px;
+	background-color: red;
+	border-radius: 50%;
+}
+.touchPointP2 {
+	position: absolute;
+	width: 130px;
+	height: 130px;
+	background-color: rgb(46, 112, 255);
+	border-radius: 50%;
+}
+body, html {  
+    height: 100%;  
+    margin: 0;  
+    display: flex;  
+    align-items: center; /* 垂直居中 */  
+    justify-content: center; /* 水平居中 */  
+  }  
+  
+.phone{
+	transform-origin: left center;  
+	transform:scale(1.8)
+}
+
+#content{
+	/* 内容盒子 */
+	width: 1280px;
+	margin: 0 auto;
+		/* background:black; */
+}
+
+.rangeright{
+	margin-left: 70%;	
+}
+
+#game_canvas{
+	/* 画布 */
+	width: 1280px;
+	height: 720px;
+	border-bottom: 1px solid black;;
+	/* background-color: aqua; */
+}
+
+#exp{
+	display: flex;  
+	padding: 1px;
+	align-items: center; /* 垂直居中 */  
+	/* border: 1px solid black; */
+}
+.keypreview{
+	padding: 5px;
+	border-radius: 5px;
+	background-color: rgb(116, 174, 53);
+}
+
+
+
+/* 菜单里的开关，使用type为checkbox的input来做 */
+.bty-switch {
+    position: relative;
+    box-sizing: content-box;
+    /* 指定大小和圆角 */
+    width: 2.6rem;
+    height: 1.4rem;
+    border: 1px solid #ccc;
+    outline: 0;
+    border-radius: .75rem;
+    /* 默认的背景色是半透明黑色 */
+    background-color: rgba(0, 0, 0, 0.1);
+    /* 因为背景颜色和border在选中后发生了改变，所以就在这里加上过渡 */
+    transition: background-color .3s, border .3s;
+    /* 去掉checkbox的默认样式 */
+    -webkit-appearance: none;
+    /* 去掉checkbox默认的点击效果 */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+ 
+/* 选中状态下的样式 */
+.bty-switch:checked {
+    border-color: #07C160;
+    background-color: #07C160;
+}
+ 
+/* 把checkbox当成容器来用，里面的圆点用伪元素来做 */
+.bty-switch::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* 长宽与父级的宽相同，并指定圆角*/
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: .7rem;
+    background-color: #fff;
+    /* 阴影是用来划分边界的 */
+    box-shadow: 0 0 2px #999;
+    /* 为了让开关有过渡效果，要使用transition属性。这个属性性能消耗大，要避免大规模使用 */
+    transition: left 1s;
+}
+ 
+/* 选中状态下，圆点的左边缘位置等于父级宽度减去自己的宽度，这样就靠右了 */
+.bty-switch:checked:after {
+    left: 1.2rem;
+}
