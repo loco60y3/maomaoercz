@@ -95,7 +95,7 @@ let randomNewFishTime = 700;
 function startGeneratingFish() {
 	let levelIn_Index = 0;
 	setInterval(() => {
-		levelIn_Index = isleveloop && levelIn_Index == levelFile.length-1 ? levelIn_Index = 0 : levelIn_Index += 1;
+		levelIn_Index = isleveloop && levelIn_Index == levelFile.length - 1 ? levelIn_Index = 0 : levelIn_Index += 1;
 		if (!islevel) {
 			let newFish = {
 				X: 0,
@@ -109,10 +109,14 @@ function startGeneratingFish() {
 			fishArry.push(newFish);
 		} else {
 			let newFish = levelFile[levelIn_Index]
+
+			//如果当前这个鱼的l为ture，那么说明它连着下一个
+			// levelIn_Index = newFishislco(newFish.l,levelIn_Index)
+
 			newFish.I = newFishImage
 			newFish.X = newFish.X
-			newFish.m = new Audio('./audio/chicken/j.mp3')
-			newFish.Y = 0; // 从顶部开始掉落
+			// newFish.m = new Audio('./audio/chicken/j.mp3')
+			newFish.Y = newFish.Y; // 从顶部开始掉落
 			console.log(newFish);
 			fishArry.push(newFish);
 		}
@@ -121,6 +125,24 @@ function startGeneratingFish() {
 
 	}, randomNewFishTime); // 每秒生成一个鱼
 }
+
+
+// function newFishislco(l,leindex) {
+// 	//用来递归的方法
+// 	if (newFish.l) {
+// 		levelIn_Index++
+// 		//让他的下一个赶紧出来
+// 		let newFish = levelFile[levelIn_Index]
+// 		newFish.I = newFishImage
+// 		newFish.X = newFish.X
+// 		// newFish.m = new Audio('./audio/chicken/j.mp3')
+// 		newFish.Y = newFish.Y - 50; // 从顶部开始掉落
+// 		console.log(newFish);
+// 		fishArry.push(newFish);
+
+// 	}
+// 	return leindex
+// }
 
 // 更新画面
 function updateAndDrawFish() {
@@ -131,7 +153,7 @@ function updateAndDrawFish() {
 	//画p2 默认位置
 	// ctx.drawImage(P2_Image[0], player2X, playerAll_Y, playerWidth, playerWidth);
 	fishArry.forEach((fish, index) => {
-		fish.Y += dropSpeed; // 更新鱼的位置，使其往下掉落（你可以调整这个值来改变掉落速度）
+		fish.Y += dropSpeed; // 更新鱼的位置
 		if (fish.Y > gameCanvas.height - fishHeight) {
 			// 当鱼掉落到画布底部时
 			fishArry = fishArry.filter((f) => f !== fish); // 从数组中移除鱼

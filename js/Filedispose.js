@@ -18,20 +18,26 @@
 // ]
 
 let levelFile = [
-    { X: 500, Y: 0, sorce: 1, m: -1 },
-    { X: 500, Y: 0, sorce: 1, m: -1 },
-    { X: 500, Y: 0, sorce: 1, m: -1 },
-    { X: 500, Y: 0, sorce: 1, m: -1 },
-    { X: 500, Y: 0, sorce: 1, m: -1 },
-    { X: 500, Y: 0, sorce: 1, m: -1 },
-    { X: 500, Y: 0, sorce: 1, m: -1 },
-    { X: 500, Y: 0, sorce: 1, m: -1 },
-    { X: 500, Y: 0, sorce: 1, m: -1 },
-    { X: 500, Y: 0, sorce: 1, m: -1 },
-    { X: 500, Y: 0, sorce: 1, m: -1 },
-    { X: 800, Y: 0, sorce: 1, m: -1 },
-
+    { X: 500, Y: 0, sorce: 1, m: -5, l: true },
+    { X: 500, Y: 0, sorce: 1, m: -5, l: true },
+    { X: 500, Y: 0, sorce: 1, m: -6, l: true },
+    { X: 500, Y: 0, sorce: 1, m: -5, l: true },
+    { X: 500, Y: 0, sorce: 1, m: 1, l: true },
+    { X: 500, Y: 0, sorce: 1, m: -7, l: true },
+    { X: 500, Y: 0, sorce: 1, m: -5, l: true },
+    { X: 500, Y: 0, sorce: 1, m: -5, l: true },
+    { X: 500, Y: 0, sorce: 1, m: -6, l: true },
+    { X: 500, Y: 0, sorce: 1, m: -5, l: true },
+    { X: 500, Y: 0, sorce: 1, m: 2, l: true },
+    { X: 500, Y: 0, sorce: 1, m: 1, l: true },
 ]
+
+//在这进来先看一遍m
+
+levelFile.forEach(e => {
+    let audioPath = `./audio/chicken/j${e.m}.wav`
+    e.m = new Audio(audioPath)
+});
 
 
 // let newFish = {
